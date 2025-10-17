@@ -3,6 +3,7 @@ using SurveyWeb.Models.EF;
 using Microsoft.EntityFrameworkCore;
 using SurveyWeb.Models;
 using System.Diagnostics;
+using System.Threading.Tasks;
 namespace SurveyWeb.Controllers
 {
     public class AccountController : Controller
@@ -46,7 +47,7 @@ namespace SurveyWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        public IActionResult CheckEmail(string newEmail)
+        public async Task<IActionResult> CheckEmail(string newEmail)
         {
             var existingUser = _context.NguoiDung
                 .AsNoTracking()
@@ -57,7 +58,7 @@ namespace SurveyWeb.Controllers
                 ViewBag.EmailError = "Email này đã được đăng ký!";
                 ViewBag.ShowModal = true; // 🔹 cờ cho biết cần mở modal
                 ViewBag.NewEmail = newEmail; // để giữ lại email người dùng đã nhập
-                Console.WriteLine("1");
+                
                 return View("SignIn");
             }
             // Nếu chưa tồn tại → sang bước tiếp theo

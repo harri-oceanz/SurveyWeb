@@ -86,17 +86,23 @@
                     <span>Hoặc</span>
                 </div>
             </div>
-            <form asp-controller="Account" asp-action="SignIn" id="checkEmailForm" method="post">
+            <form asp-controller="Account" asp-action="SignIn" id="loginForm" method="post">
                 @* Thông tin đăng nhập *@
                 <div class="SignInModal-login">
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.Error
+                        </div>
+                    }
                     <div class="SignInModal-info">
                         <div class="SignInModal-username">
                             <p>Tên đăng nhập hoặc Email</p>
-                            <input type="email" name="Username" required />
+                            <input type="email" name="username" required />
                         </div>
                         <div class="SignInModal-password">
                             <p>Mật khẩu</p>
-                            <input type="password" name="Password" required />
+                            <input type="password" name="password" required />
                             <p class="SignInModal-password--forget">Quên mật khẩu</p>
                         </div>
                     </div>
@@ -106,7 +112,7 @@
                     </div>
                 </div>
             </form>
-            <form id="checkEmailForm" method="post">
+            <form asp-controller="Account" asp-action="CheckEmail" id="checkEmailForm" method="post">
             @* Thông tin đăng kí bước 1 *@
             <div class="SignInModal-login SignInModal-register">
                 <div class="SignInModal-info">
@@ -208,4 +214,21 @@
     </div>
 
 </section>
+
+@section Scripts {
+    <script>
+        // Tự động mở modal khi có lỗi đăng nhập hoặc lỗi email
+        document.addEventListener("DOMContentLoaded", function () {
+            @if (ViewBag.Error != null || ViewBag.ShowModal != null)
+            {
+                <text>
+                    var modal = document.getElementById("modalSignIn");
+                    if (modal) {
+                        modal.style.display = "flex";
+                    }
+                </text>
+            }
+        });
+    </script>
+}
 

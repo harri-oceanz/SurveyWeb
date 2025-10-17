@@ -43,44 +43,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    var shouldOpenModal = '@(ViewBag.ShowModal?.ToString().ToLower() ?? "false")';
+// Code mở modal khi có lỗi đã được chuyển vào SignIn.cshtml
 
-    if (shouldOpenModal === 'true') {
-        document.getElementById("modalSignIn").style.display = "block";
-    }
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     const form = document.getElementById("checkEmailForm");
+//     const emailInput = document.getElementById("newEmail");
+//     const errorSpan = document.getElementById("emailError");
 
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("checkEmailForm");
-    const emailInput = document.getElementById("newEmail");
-    const errorSpan = document.getElementById("emailError");
+//     form.addEventListener("submit", function (e) {
+//         e.preventDefault(); // chặn submit thật
 
-    form.addEventListener("submit", function (e) {
-        e.preventDefault(); // chặn submit thật
+//         const email = emailInput.value.trim();
 
-        const email = emailInput.value.trim();
-
-        // Gửi AJAX đến Controller
-        fetch('/Account/CheckEmail', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: new URLSearchParams({ newEmail: email })
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Nếu chưa có email → chuyển bước kế tiếp
-                    window.location.href = data.redirectUrl;
-                } else {
-                    // Nếu email đã tồn tại → hiện thông báo lỗi
-                    errorSpan.textContent = data.message;
-                }
-            })
-            .catch(err => {
-                console.error('Lỗi:', err);
-            });
-    });
-});
+//         // Gửi AJAX đến Controller
+//         fetch('/Account/CheckEmail', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/x-www-form-urlencoded'
+//             },
+//             body: new URLSearchParams({ newEmail: email })
+//         })
+//             .then(response => response.json())
+//             .then(data => {
+//                 if (data.success) {
+//                     // Nếu chưa có email → chuyển bước kế tiếp
+//                     window.location.href = data.redirectUrl;
+//                 } else {
+//                     // Nếu email đã tồn tại → hiện thông báo lỗi
+//                     errorSpan.textContent = data.message;
+//                 }
+//             })
+//             .catch(err => {
+//                 console.error('Lỗi:', err);
+//             });
+//     });
+// });
