@@ -1,0 +1,49 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+:root {
+    --font-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --color-primary: #0a1551;
+    --color-secondary: #47507d;
+    --color-sub: #6f76a7;
+    --color-label: #2b3245;
+    --color-icon: #6c73a8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--color-primary);
+}
+
+p {
+    color: var(--color-secondary);
+}

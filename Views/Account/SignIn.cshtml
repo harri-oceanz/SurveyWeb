@@ -1,0 +1,211 @@
+﻿@{
+        ViewData["title"] = "Đăng nhập";
+}
+<section>
+    <button id="btnSignIn">SignIn</button>
+    
+    <div class="SignInModal" id="modalSignIn">
+        <div class="SignInModal-content">
+            <div class="SignInModal-header">
+                <div class="SignInModal-title">
+                    <h2>Mừng bạn đã trở lại!</h2>
+                    <p>
+                        Dễ dàng thu thập dữ liệu, nhận thanh toán và chữ ký điện tử thông
+                        qua các biểu mẫu trực tuyến do bạn tự thiết kế.
+                    </p>
+                </div>
+            </div>
+            <div class="SignInModal-type">
+                <span>Đăng nhập với</span>
+                <div class="SignInModal-containerType">
+                    <button class="SignInModal-itemType">
+                        <svg fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 36 36">
+                            <circle cx="18.5" cy="18" r="18" fill="white"></circle>
+                            <path d="M30.8759 18.2751C30.8759 17.2576 30.7916 16.5151 30.6093 15.7451H18.7534V20.3376H25.7125C25.5723 21.4789 24.8146 23.1976 23.1309 24.3525L23.1073 24.5063L26.8559 27.3522L27.1156 27.3776C29.5008 25.2188 30.8759 22.0426 30.8759 18.2751Z"
+                                  fill="#4285F4"></path>
+                            <path d="M18.7518 30.3758C22.1612 30.3758 25.0234 29.2758 27.114 27.3783L23.1293 24.3532C22.063 25.082 20.6318 25.5907 18.7518 25.5907C15.4125 25.5907 12.5784 23.432 11.5681 20.4482L11.42 20.4606L7.52217 23.4169L7.47119 23.5557C9.54769 27.5982 13.813 30.3758 18.7518 30.3758Z"
+                                  fill="#34A853"></path>
+                            <path d="M11.5695 20.4475C11.303 19.6775 11.1487 18.8525 11.1487 18C11.1487 17.1475 11.303 16.3225 11.5555 15.5525L11.5485 15.3885L7.60177 12.3848L7.47264 12.445C6.61681 14.1225 6.12573 16.0063 6.12573 18C6.12573 19.9938 6.61681 21.8774 7.47264 23.555L11.5695 20.4475Z"
+                                  fill="#FBBC05"></path>
+                            <path d="M18.7519 10.4109C21.123 10.4109 22.7225 11.4147 23.6345 12.2535L27.1983 8.84348C25.0095 6.84973 22.1612 5.62598 18.7519 5.62598C13.813 5.62598 9.5477 8.40346 7.47119 12.4459L11.5541 15.5535C12.5784 12.5697 15.4126 10.4109 18.7519 10.4109Z"
+                                  fill="#EB4335"></path>
+                        </svg>
+                        <p>Google</p>
+                    </button>
+                    <button class="SignInModal-itemType">
+                        <svg fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 36 36">
+                            <rect x="19.8198"
+                                  y="19.125"
+                                  width="11.25"
+                                  height="11.25"
+                                  fill="#FEBA08"></rect>
+                            <rect x="6.31982"
+                                  y="19.125"
+                                  width="11.25"
+                                  height="11.25"
+                                  fill="#05A6F0"></rect>
+                            <rect x="19.8198"
+                                  y="5.625"
+                                  width="11.25"
+                                  height="11.25"
+                                  fill="#80BC06"></rect>
+                            <rect x="6.31982"
+                                  y="5.625"
+                                  width="11.25"
+                                  height="11.25"
+                                  fill="#F25325"></rect>
+                        </svg>
+                        <p>Microsoft</p>
+                    </button>
+                    <button class="SignInModal-itemType">
+                        <svg fill="none"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 37 36">
+                            <circle cx="18.4999"
+                                    cy="18.0002"
+                                    r="14.6496"
+                                    fill="#1877F2"></circle>
+                            <path d="M23.9554 22.4803L24.6062 18.3455H20.5353V15.6635C20.5353 14.532 21.1029 13.4285 22.9263 13.4285H24.7782V9.90828C24.7782 9.90828 23.0982 9.62891 21.4928 9.62891C18.1387 9.62891 15.9484 11.6097 15.9484 15.1941V18.3455H12.2214V22.4803H15.9484V32.4765C16.6966 32.591 17.462 32.6497 18.2418 32.6497C19.0216 32.6497 19.7871 32.591 20.5353 32.4765V22.4803H23.9554Z"
+                                  fill="white"></path>
+                        </svg>
+                        <p>Facebook</p>
+                    </button>
+                    <button class="SignInModal-itemType">
+                        <img src="https://core-lms.utc.edu.vn/theme/image.php/cita/auth_oidc/1753147688/0/customicon"
+                             alt=""
+                             width="24"
+                             height="24" />
+                        <p>Student</p>
+                    </button>
+                </div>
+                <div class="SignInModal-divide">
+                    <span>Hoặc</span>
+                </div>
+            </div>
+            <form asp-controller="Account" asp-action="SignIn" id="checkEmailForm" method="post">
+                @* Thông tin đăng nhập *@
+                <div class="SignInModal-login">
+                    <div class="SignInModal-info">
+                        <div class="SignInModal-username">
+                            <p>Tên đăng nhập hoặc Email</p>
+                            <input type="email" name="Username" required />
+                        </div>
+                        <div class="SignInModal-password">
+                            <p>Mật khẩu</p>
+                            <input type="password" name="Password" required />
+                            <p class="SignInModal-password--forget">Quên mật khẩu</p>
+                        </div>
+                    </div>
+                    <button type="submit">Đăng nhập</button>
+                    <div class="SignInModal-noAccount">
+                        <span>Bạn không có tài khoản? </span><a href="#">Đăng ký</a>
+                    </div>
+                </div>
+            </form>
+            <form id="checkEmailForm" method="post">
+            @* Thông tin đăng kí bước 1 *@
+            <div class="SignInModal-login SignInModal-register">
+                <div class="SignInModal-info">
+                    <div class="SignInModal-username">
+                        <p>Tên đăng nhập hoặc Email</p>
+                            <input type="email" id="newEmail" name="newEmail" required />
+                            <span id="emailError" class="text-danger"></span>
+                    </div>
+                </div>
+                    <button type="submit" id="btnCheckEmail">Tiếp tục</button>
+                <div class="SignInModal-noAccount">
+                    <span>Bạn đã có tài khoản? </span><a href="#">Đăng nhập</a>
+                </div>
+            </div>
+            </form>
+
+            <button id="btnClose">
+                <i class="ri-close-large-line iconClose"></i>
+            </button> 
+
+            @* Thông tin đăng kí bước 2 *@
+            @* <div class="SignUpModal-content">
+                <div class="SignUpModal-header">
+                    <div class="SignUpModal-title">
+                        <h2>Tiếp tục đăng kí</h2>
+                        <p>Bạn đang đăng ký với harrie1412@gmail.com</p>
+                    </div>
+                </div>
+                <div class="SignUpModal-login">
+                    <div class="SignUpModal-info">
+                        <div class="SignUpModal-school">
+                            <label>Trường</label>
+                            <select id="school-selection" required>
+                                <option>
+                                    Phân hiệu Đại học Giao Thông Vận Tải tại Hồ Chí Minh
+                                </option>
+                                <option>Đại học Tài chính Marketing</option>
+                            </select>
+                        </div>
+                        <div class="SignUpModal-departClass">
+                        <div class="SignUpModal-department">
+                        <label>Khoa</label>
+                        <select id="department-selection" required>
+                            <option>Công Nghệ Thông Tin</option>
+                            <option>Kinh Tế Xây Dựng</option>
+                        </select>
+                        </div>
+                        <div class="SignUpModal-class">
+                        <label>Lớp</label>
+                        <select id="class-selection" required>
+                            <option>CQ.CNTTK64</option>
+                            <option>CQ.KTXDK64</option>
+                        </select>
+                        </div>
+                    </div>
+                        <div class="SignUpModal-name">
+                            <label for="name">Họ và tên</label>
+                            <input type="text" id="name" required />
+                        </div>
+                        <div class="SignUpModal-birthGender">
+                            <div class="SignUpModal-birthday">
+                                <label>Ngày sinh</label>
+                                <input type="date" required />
+                            </div>
+                            <div class="SignUpModal-gender">
+                                <label for="gender">Giới tính</label>
+                                <div class="SignUpModal-genderContainer">
+                                    <input type="radio" name="gender" />Nam
+                                    <input type="radio" name="gender" />Nữ
+                                </div>
+                            </div>
+                        </div>
+                        <div class="SignUpModal-password">
+                            <label>Mật khẩu</label>
+                            <input type="password" required />
+                            <div class="SignUpModal-warning">
+                                <i class="ri-error-warning-fill"></i>
+                                <p>
+                                    Mật khẩu phải bao gồm ít nhất 8 kí tự, 1 kí tự đặc biệt, 1 số
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="SignUpModal-agree">
+                        <input type="checkbox">
+                        <p>Tôi đồng ý với <a href="#">Điều khoản Dịch vụ</a>, <a href="#">Chính sách Bảo mật</a> và <a href="#">Chính sách Cookie</a>.</p>
+                    </div>
+                    <button>Đăng kí</button>
+                    <div class="SignUpModal-noAccount">
+                        <span>Bạn đã có tài khoản? </span><a>Đăng nhập</a>
+                    </div>
+                </div>
+                <button id="btnClose">
+                    <i class="ri-close-large-line iconClose"></i>
+                </button>
+            </div> *@
+                @* Kết thúc bước đăng kí 2 *@
+        </div>
+    </div>
+
+</section>
+

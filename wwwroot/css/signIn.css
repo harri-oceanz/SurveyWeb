@@ -1,0 +1,323 @@
+﻿.SignInModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.SignInModal-content,
+.SignUpModal-content {
+    margin: 30px auto;
+    background-color: white;
+    padding: 72px 20px 64px 20px;
+    border-radius: 10px;
+    text-align: center;
+    /* min-width: 300px; */
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.SignInModal-title h2,
+.SignUpModal-title h2 {
+    padding: 10px 0;
+}
+
+.SignInModal-title p,
+.SignUpModal-title p {
+    width: 80%;
+    margin: 16px auto 20px auto;
+    font-weight: 550;
+    text-align: center;
+    line-height: 1.33;
+}
+
+.SignUpModal-title p {
+    width: 100%;
+}
+
+.SignInModal-type {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+    .SignInModal-type span {
+        font-size: 14px;
+        text-align: start;
+        margin-bottom: 8px;
+        color: var(--color-sub);
+        font-weight: 500;
+    }
+
+.SignInModal-containerType {
+    display: inline-flex;
+    gap: 8px;
+}
+
+    .SignInModal-containerType button {
+        padding: 7px 8px;
+        border: 1px solid rgb(200, 206, 237);
+        background-color: #fff;
+        border-radius: 4px;
+    }
+
+        .SignInModal-containerType button p {
+            margin: 0 10px;
+            font-size: 12px;
+            color: var(--color-secondary);
+            font-weight: 600;
+        }
+
+        .SignInModal-containerType button svg,
+        .SignInModal-containerType button img {
+            width: 36px;
+            height: 36px;
+        }
+
+.SignInModal-divide {
+    padding: 24px 0;
+    position: relative;
+}
+
+    .SignInModal-divide span {
+        text-transform: uppercase;
+        color: var(--color-secondary);
+        font-weight: 600;
+        background-color: #fff;
+        border-radius: 1000px;
+        position: relative;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .SignInModal-divide::before {
+        content: "";
+        width: 70%;
+        height: 1px;
+        display: block;
+        padding: 0 44px;
+        background-color: rgb(210, 219, 242);
+        position: absolute;
+        margin: auto 0;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+.SignInModal-login,
+.SignUpModal-login,
+.SignInModal-register {
+    width: 333px;
+}
+
+.SignInModal-username,
+.SignInModal-password,
+.SignUpModal-school,
+.SignUpModal-department,
+.SignUpModal-class,
+.SignUpModal-password,
+.SignUpModal-name {
+    padding-bottom: 16px;
+    width: 100%;
+}
+
+    .SignInModal-username p,
+    .SignInModal-password p,
+    .SignUpModal-school label,
+    .SignUpModal-department label,
+    .SignUpModal-class label,
+    .SignUpModal-gender label,
+    .SignUpModal-birthday label,
+    .SignUpModal-password label,
+    .SignUpModal-name label {
+        color: var(--color-label);
+        font-weight: 700;
+        text-align: start;
+    }
+
+    .SignInModal-username input,
+    .SignInModal-password input,
+    .SignUpModal-school #school-selection,
+    .SignUpModal-department input,
+    .SignUpModal-class input,
+    .SignUpModal-password input,
+    .SignUpModal-name input,
+    .SignUpModal-department input,
+    #department-selection,
+    #class-selection {
+        margin: 8px 0 0 0;
+        padding: 0 12px;
+        height: 40px;
+        width: 100%;
+    }
+
+.SignInModal-password--forget {
+    font-size: 13px;
+    color: var(--color-secondary);
+    font-weight: 500 !important;
+    text-align: end !important;
+    margin: 6px 0 0 0;
+    padding: 0 6px;
+}
+
+.SignInModal-login button,
+.SignUpModal-login button,
+.SignInModal-register button {
+    height: 56px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    width: 100%;
+    border: none;
+    background-color: rgb(120, 187, 7);
+    border-radius: 4px;
+}
+
+.SignInModal-noAccount,
+.SignUpModal-noAccount {
+    margin-top: 24px;
+}
+
+    .SignInModal-noAccount span,
+    .SignUpModal-noAccount span {
+        font-size: 14px;
+        color: var(--color-label);
+        font-weight: 500;
+    }
+
+    .SignInModal-noAccount a,
+    .SignUpModal-noAccount a {
+        font-size: 14px;
+        color: rgb(44, 117, 242);
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+.iconClose {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+#btnClose {
+    top: 16px;
+    right: 16px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    border: none;
+    background-color: rgb(230, 230, 245);
+}
+
+
+/* Sign up */
+.SignUpModal-info {
+}
+
+.SignUpModal-school,
+.SignUpModal-department,
+.SignUpModal-name,
+.SignUpModal-class,
+.SignUpModal-birthday,
+.SignUpModal-gender,
+.SignUpModal-password {
+    text-align: start;
+}
+
+.SignUpModal-birthGender,
+.SignUpModal-departClass {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .SignUpModal-birthGender label {
+        margin: 0 0 8px 0;
+    }
+
+.SignUpModal-birthday,
+.SignUpModal-gender {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+}
+
+    .SignUpModal-birthday input {
+        height: 40px;
+    }
+
+.SignUpModal-birthday {
+    flex: 1;
+}
+
+.SignUpModal-gender {
+    margin-left: 32px;
+}
+
+.SignUpModal-genderContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+    .SignUpModal-genderContainer input:nth-child(2) {
+        margin-left: 8px;
+    }
+
+.SignUpModal-departClass {
+    gap: 24px;
+}
+
+.SignUpModal-warning {
+    display: flex;
+    margin-top: 8px;
+}
+
+    .SignUpModal-warning i {
+        font-size: 16px;
+        margin-right: 8px;
+        color: var(--color-icon);
+    }
+
+    .SignUpModal-warning p {
+        font-size: 14px;
+    }
+
+.SignUpModal-agree {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+    .SignUpModal-agree a {
+        text-decoration: none;
+    }
+
+    .SignUpModal-agree p {
+        font-weight: 700;
+        font-size: 14px;
+        text-align: start;
+    }
+
+    .SignUpModal-agree input {
+        margin-right: 8px;
+        margin-top: 4px;
+    }
+.SignInModal-register{
+    display: none;
+}
